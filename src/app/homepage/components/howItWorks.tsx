@@ -68,7 +68,7 @@ const steps = [
 const HowItWorks = () => {
   return (
     <div>
-      <div className="relative py-24 lg:py-28 bg-[#f2eee6] overflow-hidden">
+      <div className="relative py-16 lg:py-24 bg-[#f2eee6] overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
           <Image
             src={HowItWorksImage}
