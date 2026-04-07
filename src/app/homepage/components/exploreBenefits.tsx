@@ -82,7 +82,7 @@ const ExploreBenefits = () => {
           </button>
         </div>
       </div>
-      <div className="lg:ps-24 lg:pe-0">
+      <div className="ps-2 lg:ps-24 lg:pe-0">
         <Swiper
           slidesPerView={1.1}
           spaceBetween={12}
