@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from "@/common/footer";
 import Navbar from "@/common/navbar";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
@@ -7,6 +8,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
     <div>
       <Navbar />
       <div>{children}</div>
+      <Footer />
     </div>
   );
 };

@@ -28,7 +28,7 @@ const VideoTimeline = () => {
   return (
     <div className="mt-1">
       <div
-        className="relative isolate min-h-[90vh] overflow-hidden bg-black py-12 sm:py-16 lg:py-20"
+        className="relative isolate min-h-50 lg:min-h-[90vh] overflow-hidden bg-black py-12 sm:py-16 lg:py-20"
         data-aos="fade-in"
       >
         <video
@@ -43,11 +43,11 @@ const VideoTimeline = () => {
         />
 
         <div
-          className="pointer-events-none absolute inset-0 z-1 bg-gray-900/80"
+          className="pointer-events-none absolute inset-0 z-1 "
           aria-hidden
         />
 
-        <div className="relative z-2 mx-auto flex min-h-[90vh] max-w-8xl flex-col justify-end items-end px-4 sm:px-6 lg:px-8">
+        <div className="relative z-2 mx-auto flex min-h-50 lg:min-h-[90vh] max-w-8xl flex-col justify-end items-end px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-3xl  px-2 sm:px-6 lg:px-8 backdrop-blur-sm  rounded-lg p-6">
             <h1 className="text-3xl mb-8 font-heading font-light text-white sm:text-4xl lg:text-5xl ">
               Discover extraordinary stays chosen for their sense of place,
