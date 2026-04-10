@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useState, useEffect, startTransition } from "react";
 import { FaChevronRight } from "react-icons/fa";
 
@@ -123,9 +124,11 @@ const Hero = () => {
                 </div>
 
                 {/* Explore Button */}
+               <Link href="/search" className="flex items-center justify-center">
                 <button className="bg-black text-white px-8 py-4 rounded-full font-semibold text-sm hover:bg-gray-900 transition flex items-center gap-2 whitespace-nowrap ml-0 sm:ml-2">
                   EXPLORE STAYS <FaChevronRight size={16} />
                 </button>
+                </Link>
               </div>
             </div>
           </div>

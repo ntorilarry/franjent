@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
 import { HiMiniMicrophone } from "react-icons/hi2";
 import { BsCheck2 } from "react-icons/bs";
@@ -51,10 +52,13 @@ const HotelJourney = () => {
             <p className="text-white font-semibold text-sm mb-10 max-w-sm">
               Travel beyond the expected—for people who know great hospitality when they feel it.
             </p>
-            <button className="inline-flex items-center gap-4 rounded-full bg-white px-8 py-3.5 text-sm font-semibold tracking-widest text-slate-900 transition-all hover:bg-white/90 hover:gap-5">
+            <Link
+              href="/auth/sign-up"
+              className="inline-flex items-center gap-4 rounded-full bg-white px-8 py-3.5 text-sm font-semibold tracking-widest text-slate-900 transition-all hover:bg-white/90 hover:gap-5"
+            >
               JOIN JOURNEY
               <BsArrowRight className="h-4 w-4" />
-            </button>
+            </Link>
           </div>
 
           {/* Right — testimonial card + phone mockup */}

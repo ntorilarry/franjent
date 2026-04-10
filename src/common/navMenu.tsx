@@ -39,7 +39,7 @@ export default function NavMenu({ onClose }: { onClose: () => void }) {
         </Link>
 
         <div className="hidden lg:flex lg:items-center">
-          <Link href="/inquire">
+          <Link href="/auth/sign-up">
             <button className="rounded-full inline-flex gap-2 px-8 py-4 ms-2 text-sm uppercase font-medium transition-colors bg-[#2b385c] text-white hover:bg-[#2b385c]/50">
               JOIN JOURNEY <BsArrowRight />
             </button>
@@ -97,7 +97,7 @@ export default function NavMenu({ onClose }: { onClose: () => void }) {
             {/* Navigation Items */}
             <nav className="space-y-6">
               <a
-                href="#"
+                href="/auth/sign-up"
                 className="flex items-center my-4 gap-4 text-gray-300 hover:text-amber-400 transition group"
               >
                 <TbUsers size={24} className="text-amber-400" />

@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { LogoWhite, LogoMain } from "../../public";
 import Image from "next/image";
 import { BsArrowRight } from "react-icons/bs";
+import { FiUser } from "react-icons/fi";
 import NavMenu from "./navMenu";
 
 const SCROLL_THRESHOLD = 100;
@@ -19,6 +20,7 @@ const WHITE_NAV_PATHS = new Set([
   "/floor-plans",
   "/team",
   "/downloads",
+  "/search",
 ]);
 
 const Navbar = () => {
@@ -26,6 +28,8 @@ const Navbar = () => {
   const [scrollingDown, setScrollingDown] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const userMenuRef = useRef<HTMLDivElement>(null);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -56,6 +60,19 @@ const Navbar = () => {
       window.addEventListener("scroll", handleScroll, { passive: true });
       return () => window.removeEventListener("scroll", handleScroll);
     }
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        userMenuRef.current &&
+        !userMenuRef.current.contains(e.target as Node)
+      ) {
+        setUserMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const useWhiteNavBg = WHITE_NAV_PATHS.has(pathname);
@@ -99,7 +116,7 @@ const Navbar = () => {
                 className="flex items-center gap-2 lg:absolute lg:left-1/2 lg:-translate-x-1/2"
               >
                 <Image
-                  src={hasScrolled ? LogoMain : LogoWhite}
+                  src={hasScrolled || useWhiteNavBg ? LogoMain : LogoWhite}
                   alt="FauzanResort Logo"
                   width={120}
                   height={120}
@@ -109,12 +126,76 @@ const Navbar = () => {
               </Link>
 
               {/* Actions */}
-              <div className="hidden lg:flex lg:items-center">
-                <Link href="/inquire">
+              <div className="hidden lg:flex lg:items-center gap-3">
+                {/* User Icon + Dropdown */}
+                <div className="relative" ref={userMenuRef}>
+                  <button
+                    type="button"
+                    onClick={() => setUserMenuOpen((prev) => !prev)}
+                    className={`inline-flex items-center justify-center rounded-full p-3 transition-colors ${
+                      lightNavFg
+                        ? "text-gray-50 hover:bg-white/15"
+                        : "text-black hover:bg-neutral-200"
+                    }`}
+                    aria-label="User menu"
+                  >
+                    <FiUser className="h-5 w-5" />
+                  </button>
+
+                  <AnimatePresence>
+                    {userMenuOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        className="absolute right-0 mt-2 w-72 origin-top-right rounded-2xl bg-white shadow-lg ring-1 ring-black/5 overflow-hidden"
+                      >
+                        <Link
+                          href="/auth/sign-up"
+                          onClick={() => setUserMenuOpen(false)}
+                          className="flex items-center gap-4 px-5 py-4 hover:bg-gray-50 transition-colors"
+                        >
+                          <FiUser className="h-5 w-5 text-gray-700" />
+                          <div>
+                            <p className="text-sm font-semibold text-gray-900">
+                              Sign Up
+                            </p>
+                            <p className="text-xs text-gray-500">
+                              Complimentary membership
+                            </p>
+                          </div>
+                          <BsArrowRight className="ml-auto h-4 w-4 text-gray-400" />
+                        </Link>
+
+                        <div className="border-t border-gray-100" />
+
+                        <Link
+                          href="/auth/sign-in"
+                          onClick={() => setUserMenuOpen(false)}
+                          className="flex items-center gap-4 px-5 py-4 hover:bg-gray-50 transition-colors"
+                        >
+                          <FiUser className="h-5 w-5 text-gray-700" />
+                          <div>
+                            <p className="text-sm font-semibold text-gray-900">
+                              Log In
+                            </p>
+                            <p className="text-xs text-gray-500">
+                              Welcome back
+                            </p>
+                          </div>
+                          <BsArrowRight className="ml-auto h-4 w-4 text-gray-400" />
+                        </Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                <Link href="/auth/sign-up">
                   <button
                     className={`rounded-full inline-flex gap-2 px-8 py-4 ms-2 text-sm uppercase font-medium transition-colors ${
                       lightNavFg
-                        ? "bg-gray-50 text-black  hover:bg-gray-100"
+                        ? "bg-gray-50 text-black hover:bg-gray-100"
                         : "bg-gray-50 text-black hover:bg-gray-100"
                     }`}
                   >

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { HowItWorksImage, LogoMain } from "../../../../public";
 import { BsArrowRight } from "react-icons/bs";
 
@@ -34,14 +35,20 @@ const CTA = () => {
             </div>
           </div>
           <div className="flex flex-wrap justify-center pt-14 gap-4">
-            <button className="inline-flex items-center gap-4 rounded-full bg-slate-800 px-8 py-3 text-sm font-normal text-white transition-all hover:bg-slate-700 hover:gap-5 shrink-0">
+            <Link
+              href="/search"
+              className="inline-flex items-center gap-4 rounded-full bg-slate-800 px-8 py-3 text-sm font-normal text-white transition-all hover:bg-slate-700 hover:gap-5 shrink-0"
+            >
               SEARCH FOR A STAY
               <BsArrowRight className="h-4 w-4" />
-            </button>
-            <button className="inline-flex items-center gap-4 rounded-full bg-transparent border-2 px-8 py-3 text-sm font-normal text-brown-800 transition-all hover:bg-white hover:gap-5 shrink-0">
+            </Link>
+            <Link
+              href="/auth/sign-up"
+              className="inline-flex items-center gap-4 rounded-full bg-transparent border-2 px-8 py-3 text-sm font-normal text-brown-800 transition-all hover:bg-white hover:gap-5 shrink-0"
+            >
               BECOME A MEMBER
               <BsArrowRight className="h-4 w-4" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>

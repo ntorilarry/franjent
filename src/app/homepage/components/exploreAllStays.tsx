@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
 import { IoLocationOutline } from "react-icons/io5";
 import {
@@ -73,10 +74,12 @@ const ExploreAllStays = () => {
             <h2 className="text-5xl sm:text-6xl lg:text-7xl text-slate-900 mb-10">
               Carefully curated stays across the globe.
             </h2>
-            <button className="inline-flex items-center gap-4 rounded-full bg-slate-800 px-8 py-3 text-sm font-semibold tracking-widest text-white transition-all hover:bg-slate-700 hover:gap-5">
-              EXPLORE ALL STAYS
-              <BsArrowRight className="h-4 w-4" />
-            </button>
+            <Link href="/search">
+              <button className="inline-flex items-center gap-4 rounded-full bg-slate-800 px-8 py-3 text-sm font-semibold tracking-widest text-white transition-all hover:bg-slate-700 hover:gap-5">
+                EXPLORE ALL STAYS
+                <BsArrowRight className="h-4 w-4" />
+              </button>
+            </Link>
           </div>
 
           {/* Center — arch card + swiper */}

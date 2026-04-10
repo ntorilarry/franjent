@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { HowItWorksImage } from "../../../../public";
 import { BsArrowRight } from "react-icons/bs";
 import { CgLock, CgBell, CgShield, CgHeart } from "react-icons/cg";
@@ -15,6 +16,7 @@ const steps = [
     description:
       "Join Journey, tell us more about how you like to travel, and gain access to curated stays and experiences across the globe.",
     cta: "JOIN JOURNEY",
+    href: "/auth/sign-up",
     image:
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=900&fit=crop",
     imageAlt: "Luxury hotel lobby",
@@ -26,6 +28,7 @@ const steps = [
     description:
       "Browse our curated collection of boutique hotels, private villas, and hidden retreats — each vetted for exceptional quality and character.",
     cta: "EXPLORE STAYS",
+    href: "/search",
     image:
       "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&h=900&fit=crop",
     imageAlt: "Boutique hotel pool",
@@ -37,6 +40,7 @@ const steps = [
     description:
       "Enjoy complimentary room upgrades, early check-in, late check-out, and daily breakfast — privileges reserved for Journey members at every stay.",
     cta: "SEE BENEFITS",
+    href: "#",
     image:
       "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&h=900&fit=crop",
     imageAlt: "Luxury hotel suite",
@@ -48,6 +52,7 @@ const steps = [
     description:
       "Every reservation is backed by our best-rate guarantee and concierge support. If something isn't right, we make it right — always.",
     cta: "LEARN MORE",
+    href: "#",
     image:
       "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=900&fit=crop",
     imageAlt: "Hotel concierge service",
@@ -59,6 +64,7 @@ const steps = [
     description:
       "Each night earns you Journey points redeemable for future stays, experiences, and exclusive partner offers — travel more, earn more.",
     cta: "VIEW REWARDS",
+    href: "#",
     image:
       "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&h=900&fit=crop",
     imageAlt: "Scenic resort view",
@@ -175,10 +181,13 @@ const HowItWorks = () => {
                           data-swiper-parallax="-550"
                           data-swiper-parallax-opacity="0"
                         >
-                          <button className="inline-flex justify-center items-center gap-3 rounded-full bg-slate-800 px-6 lg:px-8 py-2.5 lg:py-3 text-sm lg:text-base font-semibold text-white transition-all hover:bg-slate-700 hover:gap-4">
+                          <Link
+                            href={step.href}
+                            className="inline-flex justify-center items-center gap-3 rounded-full bg-slate-800 px-6 lg:px-8 py-2.5 lg:py-3 text-sm lg:text-base font-semibold text-white transition-all hover:bg-slate-700 hover:gap-4"
+                          >
                             {step.cta}
                             <BsArrowRight className="h-4 w-4 lg:h-5 lg:w-5" />
-                          </button>
+                          </Link>
                         </div>
                       </div>
                     </div>
