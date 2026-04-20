@@ -123,7 +123,7 @@ export default function NavMenu({ onClose }: { onClose: () => void }) {
             <nav className="space-y-4  ">
               <div className=" h-px w-full bg-gray-700 " />
               <a
-                href="#"
+                href="/collections"
                 className="flex items-center gap-4  text-gray-300 hover:text-amber-400 transition group"
               >
                 <PiFunnelThin size={24} className="text-amber-400" />
@@ -133,17 +133,17 @@ export default function NavMenu({ onClose }: { onClose: () => void }) {
               </a>
               <div className=" h-px w-full bg-gray-700 " />
               <a
-                href="#"
+                href="/franjent-studios"
                 className="flex items-center gap-4 text-gray-300 hover:text-amber-400 transition group"
               >
                 <CiTrophy size={24} className="text-amber-400" />
                 <span className="text-base group-hover:text-white">
-                  Journey Studios
+                  Franjent Studios
                 </span>
               </a>
               <div className=" h-px w-full bg-gray-700 " />
               <a
-                href="#"
+                href="/about"
                 className="flex items-center gap-4 text-gray-300 hover:text-amber-400 transition group"
               >
                 <PiAirplaneTiltThin size={24} className="text-amber-400" />
@@ -151,7 +151,7 @@ export default function NavMenu({ onClose }: { onClose: () => void }) {
               </a>
               <div className=" h-px w-full bg-gray-700 " />
               <a
-                href="#"
+                href="/blog"
                 className="flex items-center gap-4 text-gray-300 hover:text-amber-400 transition group"
               >
                 <PiNotePencil size={24} className="text-amber-400" />

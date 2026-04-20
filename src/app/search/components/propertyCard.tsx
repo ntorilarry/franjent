@@ -22,7 +22,10 @@ const PropertyCard = ({ property }: { property: Property }) => {
   return (
     <div className="group">
       {/* Image */}
-      <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-100">
+      <Link
+        href={`/search/${property.id}`}
+        className="relative block aspect-4/3 overflow-hidden rounded-xl bg-gray-100"
+      >
         <Image
           src={property.image}
           alt={property.name}
@@ -32,7 +35,10 @@ const PropertyCard = ({ property }: { property: Property }) => {
 
         {/* Heart */}
         <button
-          onClick={() => setLiked((prev) => !prev)}
+          onClick={(e) => {
+            e.preventDefault();
+            setLiked((prev) => !prev);
+          }}
           className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm transition-colors hover:bg-white"
         >
           <FiHeart
@@ -48,16 +54,18 @@ const PropertyCard = ({ property }: { property: Property }) => {
             </span>
           </div>
         )}
-      </div>
+      </Link>
 
       {/* Info */}
-      <div className="mt-3">
-        <h3 className="text-sm font-semibold text-gray-900">{property.name}</h3>
+      <Link href={`/search/${property.id}`} className="mt-3 block">
+        <h3 className="text-sm font-semibold text-gray-900 group-hover:underline decoration-gray-300 underline-offset-2">
+          {property.name}
+        </h3>
         <div className="mt-0.5 flex items-center gap-1 text-xs text-gray-500">
           <IoLocationOutline className="h-3.5 w-3.5" />
           <span>{property.location}</span>
         </div>
-      </div>
+      </Link>
 
       {/* Pricing */}
       <div className="mt-2 flex items-center gap-1 text-xs text-gray-400">
@@ -81,7 +89,7 @@ const PropertyCard = ({ property }: { property: Property }) => {
             Member Price
           </p>
           <Link
-            href="/auth/login"
+            href="/auth/sign-in"
             className="inline-flex items-center gap-1 text-sm font-medium text-gray-900 underline decoration-gray-300 underline-offset-2 hover:decoration-gray-900 transition-colors"
           >
             <CgLock className="h-3.5 w-3.5" />

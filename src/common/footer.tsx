@@ -7,6 +7,7 @@ import { TbWorld } from "react-icons/tb";
 import { LuPlane } from "react-icons/lu";
 import { FiInstagram } from "react-icons/fi";
 import { RiTwitterXLine } from "react-icons/ri";
+import Link from "next/link";
 
 const links = [
   "Behind the Stays",
@@ -20,7 +21,6 @@ const Footer = () => {
   return (
     <footer className="bg-[#f2eee6] px-4 sm:px-6 lg:px-8 pb-8">
       <div className="rounded-4xl bg-[#e8e2d8] px-8 sm:px-12 lg:px-16 pt-12 pb-0 overflow-hidden relative">
-
         {/* Top row — divider line with icons */}
         <div className="flex items-center gap-4 mb-10">
           <TbWorld className="h-5 w-5 text-slate-500 shrink-0" />
@@ -33,15 +33,16 @@ const Footer = () => {
           <h2 className="text-5xl sm:text-6xl lg:text-7xl text-slate-800">
             Worth Every Trip
           </h2>
-          <button className="inline-flex items-center gap-4 rounded-full bg-slate-800 px-8 py-3.5 text-sm font-semibold tracking-widest text-white transition-all hover:bg-slate-700 hover:gap-5 shrink-0 self-start sm:self-auto">
-            BECOME AN ALLIANCE PROPERTY
-            <BsArrowRight className="h-4 w-4" />
-          </button>
+          <Link href="/alliance">
+            <button className="inline-flex items-center gap-4 rounded-full bg-slate-800 px-8 py-3.5 text-sm font-semibold tracking-widest text-white transition-all hover:bg-slate-700 hover:gap-5 shrink-0 self-start sm:self-auto">
+              BECOME AN ALLIANCE PROPERTY
+              <BsArrowRight className="h-4 w-4" />
+            </button>
+          </Link>
         </div>
 
         {/* Bottom area — logo icon left, links + contact right, JOURNEY wordmark below */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-
           {/* Logo icon */}
           <div className="shrink-0 w-52 sm:w-64 lg:w-72 self-start lg:self-end pb-0">
             <Image
@@ -57,7 +58,9 @@ const Footer = () => {
               <FiInstagram className="h-5 w-5 text-slate-600 hover:text-slate-900 cursor-pointer transition-colors" />
               <RiTwitterXLine className="h-5 w-5 text-slate-600 hover:text-slate-900 cursor-pointer transition-colors" />
             </div>
-            <p className="text-xs text-slate-500">© Journey Rewards Inc. 2026</p>
+            <p className="text-xs text-slate-500">
+              © Journey Rewards Inc. 2026
+            </p>
           </div>
 
           {/* Right — nav links + contact */}
@@ -98,7 +101,11 @@ const Footer = () => {
         <div className="text-center  overflow-hidden leading-none">
           <span
             className="text-slate-800 font-bold tracking-tight select-none"
-            style={{ fontSize: "clamp(5rem, 18vw, 18rem)", lineHeight: 0.85, letterSpacing: "-0.02em" }}
+            style={{
+              fontSize: "clamp(5rem, 18vw, 18rem)",
+              lineHeight: 0.85,
+              letterSpacing: "-0.02em",
+            }}
           >
             FRANJENT
           </span>

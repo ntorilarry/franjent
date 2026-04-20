@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { BsArrowRight } from "react-icons/bs";
 import { TbWorld } from "react-icons/tb";
 import { LuPlane } from "react-icons/lu";
+import Link from "next/link";
 
 const benefits = [
   {
@@ -76,10 +77,12 @@ const ExploreBenefits = () => {
           <h2 className="text-5xl sm:text-6xl lg:text-7xl text-slate-900 max-w-2xl">
             The benefits of Journey Membership
           </h2>
-          <button className="inline-flex items-center gap-4 rounded-full bg-slate-800 px-8 py-3 text-sm font-semibold tracking-widest text-white transition-all hover:bg-slate-700 hover:gap-5 shrink-0">
-            EXPLORE ALL BENEFITS
-            <BsArrowRight className="h-4 w-4" />
-          </button>
+          <Link href="/benefits">
+            <button className="inline-flex items-center gap-4 rounded-full bg-slate-800 px-8 py-3 text-sm font-semibold tracking-widest text-white transition-all hover:bg-slate-700 hover:gap-5 shrink-0">
+              EXPLORE ALL BENEFITS
+              <BsArrowRight className="h-4 w-4" />
+            </button>
+          </Link>
         </div>
       </div>
       <div className="ps-2 lg:ps-24 lg:pe-0">

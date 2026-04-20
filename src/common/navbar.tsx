@@ -15,13 +15,14 @@ import NavMenu from "./navMenu";
 const SCROLL_THRESHOLD = 100;
 
 const WHITE_NAV_PATHS = new Set([
-  "/inquire",
-  "/gallery",
-  "/floor-plans",
-  "/team",
-  "/downloads",
+
   "/search",
+  "/search/id",
+  "/benefits",
+ 
 ]);
+
+const WHITE_NAV_PREFIXES = ["/search/"];
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -75,7 +76,9 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const useWhiteNavBg = WHITE_NAV_PATHS.has(pathname);
+  const useWhiteNavBg =
+    WHITE_NAV_PATHS.has(pathname) ||
+    WHITE_NAV_PREFIXES.some((p) => pathname.startsWith(p));
   const overHero = !hasScrolled;
   const lightNavFg = overHero && !useWhiteNavBg;
 
